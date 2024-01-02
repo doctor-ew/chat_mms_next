@@ -36,8 +36,8 @@ const RickAndMortyPage = () => {
 
     const handleChatQuery = async (query:string) => {
         console.log("|-hcq-|", query);
-        //const cqurl:string = 'http://local.doctorew.com:4000/api/chat/';
-        const cqurl:string = 'https://mms-graph.doctorew.com/chat/';
+        const cqurl:string = 'http://local.doctorew.com:4000/dev/api/chat/';
+        //const cqurl:string = 'https://mms-graph.doctorew.com/chat/';
         const response = await fetch(cqurl, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },

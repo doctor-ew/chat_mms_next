@@ -23,8 +23,8 @@ interface Morty {
     // Add other properties as needed
 }
 
-//const acurl: string = 'http://local.doctorew.com:4000/rickmorty';
-const acurl: string = 'https://mms-graph.doctorew.com/rickmorty';
+const acurl: string = 'http://local.doctorew.com:4000/dev/rickmorty';
+//const acurl: string = 'https://mms-graph.doctorew.com/rickmorty';
 
 const apolloClient = new ApolloClient({
     link: new HttpLink({ uri: acurl, credentials: 'same-origin' }),
