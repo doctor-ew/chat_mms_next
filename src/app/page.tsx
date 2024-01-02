@@ -1,5 +1,7 @@
 'use client';
 
+// /src/app/page.tsx
+
 import React, { useState, useEffect, useCallback, CSSProperties} from 'react';
 import { apolloClient } from '../lib/apolloClient';
 import { useQuery } from '@apollo/client';
@@ -8,6 +10,7 @@ import ChatBox from '../components/ChatBox';
 import { GET_POCKET_MORTIES_QUERY } from '../lib/graphqlQueries';
 import { PocketMortyConnection, PocketMortyEdge } from '../lib/types';
 import "./globals.css";
+import { getApiUri } from '../lib/apiConfig';
 
 const RickAndMortyPage = () => {
     const [morties, setMorties] = useState<PocketMortyEdge[]>([]);
@@ -35,10 +38,11 @@ const RickAndMortyPage = () => {
 
 
     const handleChatQuery = async (query:string) => {
-        console.log("|-hcq-|", query);
-        const cqurl:string = 'http://local.doctorew.com:4000/dev/api/chat/';
-        //const cqurl:string = 'https://mms-graph.doctorew.com/chat/';
-        const response = await fetch(cqurl, {
+
+        const chatApiUrl = getApiUri({ endpoint: 'api/chat' });
+        console.log("|-hcq-|", chatApiUrl, " :: query: ", query);
+
+        const response = await fetch(chatApiUrl, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ query })

@@ -1,6 +1,7 @@
 // /apps/web/app/layout.tsx
 
-import "./globals.css";
+//import "./globals.css";
+import "../styles/tailwind.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 

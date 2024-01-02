@@ -1,10 +1,14 @@
-import { ApolloClient, InMemoryCache, HttpLink } from '@apollo/client';
+// /src/apolloClient.ts
 
+import { ApolloClient, InMemoryCache, HttpLink } from '@apollo/client';
+import { getApiUri } from './lib/apiConfig';
+
+
+const apiUrl = getApiUri({ endpoint: 'rickmorty' });
 export const apolloClient = new ApolloClient({
     ssrMode: typeof window === 'undefined',
     link: new HttpLink({
-        uri: 'http://local.doctorew.com:4000/dev/rickmorty',
-        //uri: 'https://mms-graph.doctorew.com/rickmorty',
+        uri: apiUrl
     }),
     cache: new InMemoryCache(),
 });

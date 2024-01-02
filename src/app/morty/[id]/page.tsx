@@ -1,9 +1,13 @@
 'use client';
+
+// /src/app/page.tsx
+
 import { usePathname } from 'next/navigation';
 import { useEffect, useState, FC } from 'react';
 import { useQuery } from '@apollo/client';
 import { GET_POCKET_MORTY_QUERY } from '../../../lib/graphqlQueries';
 import { ApolloClient, InMemoryCache, HttpLink } from '@apollo/client';
+import { getApiUri } from '../../../lib/apiConfig';
 import Image from 'next/image';
 
 interface Morty {
@@ -23,11 +27,10 @@ interface Morty {
     // Add other properties as needed
 }
 
-const acurl: string = 'http://local.doctorew.com:4000/dev/rickmorty';
-//const acurl: string = 'https://mms-graph.doctorew.com/rickmorty';
+const chatApiUrl = getApiUri({ endpoint: 'rickmorty' });
 
 const apolloClient = new ApolloClient({
-    link: new HttpLink({ uri: acurl, credentials: 'same-origin' }),
+    link: new HttpLink({ uri: chatApiUrl, credentials: 'same-origin' }),
     cache: new InMemoryCache(),
 });
 
