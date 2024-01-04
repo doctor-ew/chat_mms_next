@@ -7,6 +7,10 @@
     /* Adjustments for smaller screens */
   }
 }
+body {
+  background-color: tomato!important;
+}
+
 /*
 #main-content::before {
   content: '';

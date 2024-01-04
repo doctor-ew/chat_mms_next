@@ -9,7 +9,9 @@ import Card from '../components/Card';
 import ChatBox from '../components/ChatBox';
 import { GET_POCKET_MORTIES_QUERY } from '../lib/graphqlQueries';
 import { PocketMortyConnection, PocketMortyEdge } from '../lib/types';
-import "./globals.css";
+//import "./globals.css";
+import "../styles/tailwind.css";
+
 import { getApiUri } from '../lib/apiConfig';
 
 const RickAndMortyPage = () => {

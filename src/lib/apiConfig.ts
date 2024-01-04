@@ -5,7 +5,10 @@ interface ApiConfigOptions {
     defaultUri?: string;
 }
 
-export const getApiUri = ({ endpoint, defaultUri = 'http://localhost:4000/dev' }: ApiConfigOptions): string => {
+const uriString : string = "https://mms-graph.doctorew.com";
+//const uriString : string = "http://localhost:4000/dev";
+
+export const getApiUri = ({ endpoint, defaultUri = uriString }: ApiConfigOptions): string => {
     const baseUri = process.env.API_URI || defaultUri;
     return `${baseUri}/${endpoint}`;
 };
